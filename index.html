@@ -2,54 +2,64 @@
 <html>
 <head>
     <title>Countdown to the Brand</title>
-    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-    <style>
-         @font-face {
-        font-family: 'Rubik Distressed';
-        src: url('RubikDistressed-Regular.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
-    }
 
+    <!-- Load UnifrakturCook for the timer -->
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Load Rubik Distressed from local .woff2 */
+        @font-face {
+            font-family: 'Rubik Distressed';
+            src: url('RubikDistressed-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
             background-color: black;
             color: red;
             text-align: center;
             font-family: 'UnifrakturCook', cursive;
             margin-top: 50px;
         }
+
         .symbol {
             margin-top: -150px;
             margin-bottom: 30px;
         }
+
         .symbol img {
             width: 1000px;
             height: auto;
         }
+
         .timer {
             font-size: 48px;
             margin-top: 20px;
         }
 
         .location-text {
-    font-size: 24px;
-    color: red;
-    margin-top: 20px;
-    font-family: 'UnifrakturCook', cursive;
-    letter-spacing: 2px;
-}
+            font-size: 24px;
+            color: red;
+            margin-top: 20px;
+            font-family: 'Rubik Distressed', sans-serif;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="symbol">
-        <img src="beserk.png" alt="Brand of Sacrifice">
+        <img src="berserk.png" alt="Brand of Sacrifice">
     </div>
 
     <div class="timer" id="countdown"></div>
+
     <div class="location-text">BEHIND FOOTBALL FIELD BLEACHERS</div>
 
     <script>
-        // Target Date: June 13, 2025 at 1:30 PM
+        // Target Date: June 16, 2025 at 1:30 PM
         var targetDate = new Date("June 16, 2025 13:30:00").getTime();
 
         var countdownFunction = setInterval(function() {
@@ -61,12 +71,15 @@
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-             document.getElementById("countdown").innerHTML =
-            days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            document.getElementById("countdown").innerHTML =
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
-        if (distance < 0) {
-            clearInterval(countdownFunction);
-            document.getElementById("countdown").innerHTML = "The time has come.";
-        }
-    }, 1000);
-</script>
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "The time has come.";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
